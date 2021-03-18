@@ -43,11 +43,11 @@ const gitCommands = [
     'git init',
     'git config user.name gabrielale1481',
     'git config user.email gabrielale1481@gmail.com',
+    'git remote add origin https://github.com/gabrielale1481/json-test.git',
     'git add .',
     'git commit -m "commit from Heroku"',
-    'git remote add origin https://github.com/gabrielale1481/json-test.git',
-    'git pull origin main --allow-unrelated-histories',
-    'git push -u origin main'
+    'git pull origin main',
+    'git push origin main'
 ]
 
 changeJSON()
