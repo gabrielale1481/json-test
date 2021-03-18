@@ -1,5 +1,8 @@
-const { promisify } = require("util");
+const { readFile, writeFile } = require("fs/promises");
 const { exec } = require("child_process");
+const { promisify } = require("util");
+
+const JSON_PATH = process.cwd().concat("/changeMe.json");
 
 const execute = function( command ){
 
@@ -15,18 +18,33 @@ const execute = function( command ){
 
 }
 
+const changeJSON = function(){
+    return (
+        readFile(JSON_PATH)
+        .then(JSON.parse)
+        .then(parsed => ({
+            ...parsed,
+            count: parsed.count + 1
+        }))
+        .then(JSON.stringify)
+        .then(JSONText => writeFile(JSON_PATH, JSONText))
+    )
+}
+
+const lookForErrors = commands => {
+    const error = commands.find(cmd => cmd.stderr)?.stderr;
+    if( error ) throw error;
+    return "Ready"
+}
+
 const gitCommands = [
     'git add .',
     'git commit -m "initial commit"',
     'git push origin main'
 ]
 
-execute(gitCommands).then(function(commands){
-
-    const error = commands.find(cmd => cmd.stderr)?.stderr;
-
-    if( error ) throw error;
-
-    console.log("Ready")
-
-}).catch(e => console.log(e.message ?? e))
+changeJSON()
+    .then(execute(gitCommands))
+    .then(lookForErrors)
+    .then(console.log)
+    .catch(console.log)
