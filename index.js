@@ -5,17 +5,15 @@ const execute = function( command ){
 
     const _exec = cmd => promisify(exec)(cmd);
 
-    if( Array.isArray(command) ) return new Promise(async function(resolve, reject){
+    if( Array.isArray(command) ) return new Promise(async function(resolve){
         const result = [];
         for( let cmd of command ) result.push(await _exec(cmd));
-        resolve(result);
+        return resolve(result);
     })
 
     return _exec(command);
 
 }
-
-const formatOutput = output => output.replace(/\n\r/g, '');
 
 const gitCommands = [
     'git add .',
