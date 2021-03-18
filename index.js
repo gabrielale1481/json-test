@@ -40,9 +40,10 @@ const lookForErrors = commands => {
 }
 
 const gitCommands = [
-    'git add .',
-    'git commit -m "initial commit"',
-    'git push origin main'
+    'ls'
+    // 'git add .',
+    // 'git commit -m "initial commit"',
+    // 'git push origin main'
 ]
 
 changeJSON()
