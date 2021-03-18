@@ -8,10 +8,12 @@ const execute = function( command ){
 
     const _exec = cmd => promisify(exec)(cmd);
 
-    if( Array.isArray(command) ) return new Promise(async function(resolve){
+    if( Array.isArray(command) ) return new Promise(async function(resolve, reject){
         const result = [];
-        for( let cmd of command ) result.push(await _exec(cmd));
-        return resolve(result);
+        try{
+            for( let cmd of command ) result.push(await _exec(cmd));
+            return resolve(result);
+        } catch (e) { reject(e) }
     })
 
     return _exec(command);
