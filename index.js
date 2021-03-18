@@ -25,9 +25,7 @@ const gitCommands = [
 
 execute(gitCommands).then(function(commands){
 
-    const error = commands.find(cmd => cmd.sterr).stderr;
-
-    console.log(error);
+    const error = commands.find(cmd => cmd.sterr)?.stderr;
 
     if( error ) throw error;
 
