@@ -26,7 +26,7 @@ const changeJSON = function(){
             ...parsed,
             count: parsed.count + 1
         }))
-        .then(JSON.stringify)
+        .then(modified => JSON.stringify(modified, undefined, 4))
         .then(JSONText => writeFile(JSON_PATH, JSONText))
     )
 }
@@ -44,7 +44,7 @@ const gitCommands = [
 ]
 
 changeJSON()
-    .then(execute(gitCommands))
+    .then(() => execute(gitCommands))
     .then(lookForErrors)
     .then(console.log)
     .catch(console.log)
