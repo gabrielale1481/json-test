@@ -4,5 +4,8 @@
   "main": "index.js",
   "repository": "https://github.com/gabrielale1481/json-test.git",
   "author": "gabrielale1481 <gabrielale1481@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "node ."
+  }
 }
