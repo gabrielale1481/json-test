@@ -26,11 +26,12 @@ const gitCommands = [
 execute(gitCommands).then(function(commands){
 
     console.log(commands);
-    
-    const error = commands.find(cmd => cmd.sterr)?.stderr;
+
+    const error = commands.find(cmd => {
+        console.log(cmd.stderr);
+        return cmd.stderr
+    })?.stderr;
 
     if( error ) throw error;
-
-    console.log(commands);
 
 }).catch(e => console.log(e.message))
