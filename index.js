@@ -46,9 +46,8 @@ const gitCommands = [
     'git add .',
     'git commit -m "commit from Heroku"',
     'git remote add origin https://github.com/gabrielale1481/json-test.git',
-    'git fetch https://github.com/gabrielale1481/json-test.git',
-    'git pull --rebase origin main',
-    'git push origin main'
+    'git pull origin main --allow-unrelated-histories',
+    'git push -u origin main'
 ]
 
 changeJSON()
