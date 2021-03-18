@@ -31,4 +31,4 @@ execute(gitCommands).then(function(commands){
 
     console.log("Ready")
 
-}).catch(e => console.log(e?.message ?? e))
+}).catch(e => console.log(e.message ?? e))
