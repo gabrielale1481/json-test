@@ -36,7 +36,7 @@ const changeJSON = function(){
 const lookForErrors = commands => {
     const error = commands.find(cmd => cmd.stderr)?.stderr;
     if( error ) throw error;
-    return "Ready"
+    return commands.map(x => x.stdout.replace("\n\r")).join("\n");
 }
 
 const gitCommands = [
