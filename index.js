@@ -46,7 +46,7 @@ const gitCommands = [
     'git remote add origin https://github.com/gabrielale1481/json-test.git',
     'git add .',
     'git commit -m "commit from Heroku"',
-    'git pull origin main',
+    'git pull origin main --allow-unrelated-histories',
     'git push origin main'
 ]
 
