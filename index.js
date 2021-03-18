@@ -40,10 +40,13 @@ const lookForErrors = commands => {
 }
 
 const gitCommands = [
-    'ls'
-    // 'git add .',
-    // 'git commit -m "initial commit"',
-    // 'git push origin main'
+    'git init',
+    'git config user.name gabrielale1481',
+    'git config user.email gabrielale1481@gmail.com',
+    'git add .',
+    'git commit -m "commit from Heroku"',
+    'git remote add origin https://github.com/gabrielale1481/json-test.git',
+    'git push origin main'
 ]
 
 changeJSON()
