@@ -29,4 +29,6 @@ execute(gitCommands).then(function(commands){
 
     if( error ) throw error;
 
+    console.log("Ready")
+
 }).catch(e => console.log(e.message))
