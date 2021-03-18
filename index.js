@@ -31,6 +31,6 @@ execute(gitCommands).then(function([add, commit, push]){
 
     if( error ) throw error;
 
-    console.log([...arguments].map(x => formatOutput(x.stdout)).join("\n\n"));
+    console.log([...arguments]);
 
 }).catch(e => console.log(e.message))
