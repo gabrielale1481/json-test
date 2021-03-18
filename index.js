@@ -23,14 +23,14 @@ const gitCommands = [
     'git push origin main'
 ]
 
-execute(gitCommands).then(function([add, commit, push]){
+execute(gitCommands).then(function(commands){
 
-    const error = add.stderr ?? commit.stderr ?? push.stderr;
+    const error = commands.find(cmd => cmd.sterr).stderr;
 
     console.log(error);
 
     if( error ) throw error;
 
-    console.log([...arguments[0]]);
+    console.log(commands);
 
 }).catch(e => console.log(e.message))
